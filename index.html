@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="eng">
+<meta charset="UTF-8">
+<head>
+    <title>My First Webpage</title>
+    <script>
+        function getComputerChoice(string) {
+            const randomIndex = Math.floor(Math.random() * string.length);
+            return string[randomIndex];
+        }
+        const string = ['rock', 'paper', 'scissor'];
+        getRandomString = getComputerChoice(string);
+        console.log(getRandomString)
+    </script>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+</body>
+
+</html>
