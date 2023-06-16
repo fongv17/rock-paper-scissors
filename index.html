@@ -12,6 +12,29 @@
         const string = ['rock', 'paper', 'scissor'];
         getRandomString = getComputerChoice(string);
         console.log(getRandomString)
+
+        const userInput = prompt('please enter your choice');
+        formatInput = userInput.toLowerCase();
+        console.log(formatInput);
+
+            if (getRandomString == formatInput) {
+            console.log('it is a tie!');
+            } else if (getRandomString == 'rock' && formatInput == 'scissor') {
+            console.log('The computer wins by smashing your scissor with rock!');
+            } else if (getRandomString == 'rock' && formatInput == 'paper') {
+            console.log('You win!');
+            } else if (getRandomString == 'paper' && formatInput == 'scissor') {
+            console.log('You win!');
+            } else if (getRandomString == 'scissor' && formatInput == 'rock') {
+            console.log('You win by smashing the fuck out of his scissor!');
+            } else if (getRandomString == 'scissor' && formatInput == 'paper') {
+            console.log('He cut the shit out of your paper!');
+            } else if (getRandomString == 'paper' && formatInput == 'rock') {
+            console.log('The computer wrapped the shit out of your rock KEK!');
+            }
+    
+
+
     </script>
 </head>
 
