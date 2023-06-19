@@ -5,6 +5,9 @@
 <head>
     <title>My First Webpage</title>
     <script>
+        let userScore = 0;
+        let computerScore = 0;
+
         function getComputerChoice(string) {
             const randomIndex = Math.floor(Math.random() * string.length);
             return string[randomIndex];
@@ -13,28 +16,40 @@
         getRandomString = getComputerChoice(string);
         console.log(getRandomString)
 
-        const userInput = prompt('please enter your choice');
-        formatInput = userInput.toLowerCase();
-        console.log(formatInput);
+        function playRound(computerChoice, userChoice){
+            if (computerChoice == userChoice) {
+                return "it's a tie!";
+            } else if (
+            (computerChoice == 'rock' && userChoice == 'scissor') ||
+            (computerChoice == 'scissor' && userChoice == 'paper') ||
+            (computerChoice == 'paper' && userChoice == 'rock') 
+            ) {
+                computerScore++;
+                return "You lost! " + computerChoice + " destroys " + userChoice + ". The computer has a score of " + computerScore + " to your " + userScore + ".";
+            } else {
+                userScore++;
+                return "You won! " + userChoice + " destroys " + computerChoice + ".  You have a score of " + userScore + " to the computer's score of " + computerScore + ".";
+            }  
+        }    
 
-            if (getRandomString == formatInput) {
-            console.log('it is a tie!');
-            } else if (getRandomString == 'rock' && formatInput == 'scissor') {
-            console.log('The computer wins by smashing your scissor with rock!');
-            } else if (getRandomString == 'rock' && formatInput == 'paper') {
-            console.log('You win!');
-            } else if (getRandomString == 'paper' && formatInput == 'scissor') {
-            console.log('You win!');
-            } else if (getRandomString == 'scissor' && formatInput == 'rock') {
-            console.log('You win by smashing the fuck out of his scissor!');
-            } else if (getRandomString == 'scissor' && formatInput == 'paper') {
-            console.log('He cut the shit out of your paper!');
-            } else if (getRandomString == 'paper' && formatInput == 'rock') {
-            console.log('The computer wrapped the shit out of your rock KEK!');
+        function game() {
+            for (let i = 0; i < 5; i++) {
+            const userInput = prompt('please enter your choice of rock, paper, or scissor');
+            formatInput = userInput.toLowerCase();
+            const userChoices = formatInput;
+            const computerChoices= getRandomString;
+            console.log(playRound(computerChoices,userChoices));
             }
-    
-
-
+            
+            if (userScore > computerScore) {
+                console.log("You won the game!")
+            } else if (computerScore > userScore) {
+                console.log("You lost the game to the computer!")
+            } else {
+                console.log("It's a tied game!")
+            }
+        }
+        game()
     </script>
 </head>
 
